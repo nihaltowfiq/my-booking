@@ -9,7 +9,7 @@ export function Breadcrumbs({ data = [] }: Props) {
         {data?.map((el, i) => (
           <li
             key={el.value}
-            className="flex items-center gap-[0.25rem] justify-between text-secondary-400"
+            className="flex items-center gap-[0.25rem] justify-between text-secondary-400 text-[0.813rem]"
           >
             <Link
               className={classNames({
