@@ -6,6 +6,7 @@ import { breadcrumbsData, flightData } from '@/data';
 
 export default function Home() {
   const { details, ...rest } = flightData;
+
   return (
     <>
       <Breadcrumbs data={breadcrumbsData} />
