@@ -3,7 +3,7 @@ import { ReactComponent as Warning } from '@/icons/warning.svg';
 
 export function AirlineInfo({ data }: Props) {
   return (
-    <div className="mt-[0.65rem] pl-[2.625rem] relative before:absolute before:content-[''] before:border-[0.113rem] before:border-solid before:-top-2 before:-bottom-2 before:left-[0.938rem] after:content-[url('/assets/icons/plane.svg')] after:absolute after:rounded-full after:z-10 after:left-[0rem] after:h-[2rem] after:w-[2rem] after:top-1/2 after:transform after:-translate-y-1/2">
+    <div className="mt-[0.65rem] pl-[2.625rem] relative before:absolute before:content-[''] before:border-[0.113rem] before:border-solid before:-top-2 before:-bottom-2 before:left-[0.938rem] after:content-[url('/my-booking/assets/icons/plane.svg')] after:absolute after:rounded-full after:z-10 after:left-[0rem] after:h-[2rem] after:w-[2rem] after:top-1/2 after:transform after:-translate-y-1/2">
       <div className="w-full rounded-md flex items-center gap-[0.35rem] px-[0.1rem]">
         <div className="w-1/3">
           <p className="leading-6 text-[0.875rem] font-[475] text-secondary-500">

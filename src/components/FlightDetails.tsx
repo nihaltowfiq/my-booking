@@ -1,24 +1,9 @@
+import { Fragment } from 'react';
 import { LocationBar } from './LocationBar';
 import { Card } from './Card';
 import { AirlineInfo } from './AirlineInfo';
 import { flightData } from '../data';
-import { Fragment } from 'react';
 import { Timing } from './Timing';
-
-const dummyData = {
-  notice: 'Your flight has been delayed by 30 minutes.',
-  airline: 'Delta Airlines',
-  flightNo: 'DL 1234',
-  plane: 'Boeing 737',
-  coach: 'Economy',
-};
-
-const dummyData2 = {
-  airline: 'Delta Airlines',
-  flightNo: 'DL 1234',
-  plane: 'Boeing 737',
-  coach: 'Economy',
-};
 
 export function FlightDetails({ data }: Props) {
   return (
