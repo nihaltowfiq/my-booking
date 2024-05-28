@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/my-booking',
   webpack: function (config) {
     config.module.rules.push({
       test: /\.svg$/i,
