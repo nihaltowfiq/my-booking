@@ -21,6 +21,7 @@ const config: Config = {
         secondary: {
           300: '#F5F7FA',
           400: '#5A6573',
+          500: '#3E4957',
           DEFAULT: '#5A6573',
         },
         tertiary: {
