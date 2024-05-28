@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'My Booking',
 };
 
-export const font = Murecho({
+const font = Murecho({
   subsets: ['latin'],
   variable: '--font-murecho',
 });
