@@ -1,7 +1,9 @@
-import { Bar } from './Bar';
+import { LocationBar } from './LocationBar';
 import { Card } from './Card';
-import { FlightTime } from './FlightTime';
-import { FlightType } from './FlightType';
+import { AirlineInfo } from './AirlineInfo';
+import { flightData } from '../data';
+import { Fragment } from 'react';
+import { Timing } from './Timing';
 
 const dummyData = {
   notice: 'Your flight has been delayed by 30 minutes.',
@@ -18,51 +20,32 @@ const dummyData2 = {
   coach: 'Economy',
 };
 
-export default function FlightDetails() {
+export function FlightDetails({ data }: Props) {
   return (
     <Card.Content>
-      <Bar
-        leftContent="Departure from Dhaka"
-        rightContent={
-          <p>
-            <span className="font-[475]">Terminal 1:</span> Hazrat Shahjalal
-            International Airport
-          </p>
-        }
-      />
+      {data.map((el, i) => (
+        <Fragment key={i}>
+          <LocationBar
+            title={el.title}
+            airport={el?.airport}
+            isLayover={el.layover}
+            iconActive={el.arrived}
+            terminal={el?.terminal}
+          />
 
-      <div className="pt-[0.75rem] pb-[1rem]">
-        <FlightTime />
+          {!el.arrived && (
+            <div className="pt-[0.75rem] pb-[1rem]">
+              <Timing data={el} />
 
-        <FlightType {...dummyData} />
-      </div>
-
-      <Bar
-        leftContent="Departure from Dhaka"
-        rightContent={
-          <p>
-            <span className="font-[475]">Terminal 1:</span> Hazrat Shahjalal
-            International Airport
-          </p>
-        }
-      />
-
-      <div className="pt-[0.75rem] pb-[1rem]">
-        <FlightTime />
-
-        <FlightType {...dummyData2} />
-      </div>
-
-      <Bar
-        iconActive
-        leftContent="Departure from Dhaka"
-        rightContent={
-          <p>
-            <span className="font-[475]">Terminal 1:</span> Hazrat Shahjalal
-            International Airport
-          </p>
-        }
-      />
+              <AirlineInfo data={el} />
+            </div>
+          )}
+        </Fragment>
+      ))}
     </Card.Content>
   );
 }
+
+type Props = {
+  data: (typeof flightData)['details'];
+};

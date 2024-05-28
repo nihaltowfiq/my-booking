@@ -1,7 +1,7 @@
 import { Card } from './Card';
 import { Badge } from './Badge';
 
-export function FlightHeader() {
+export function FlightHeader({ date, duration, from, stop, to, type }: Props) {
   return (
     <Card.Header className="flex items-center justify-between gap-[1rem]">
       <div className="flex items-center gap-[1rem]">
@@ -11,18 +11,27 @@ export function FlightHeader() {
 
         <div>
           <h4 className="text-[1.125rem] text-black font-semibold">
-            DAC → JFK
+            {from} → {to}
           </h4>
           <div className="text-secondary flex items-center space-x-2 text-[0.813rem]">
-            <span>Round Trip</span>
+            <span>{type}</span>
             <span>&bull;</span>
-            <span>25 Mar - 4 Apr 2023</span>
+            <span>{date}</span>
             <span>&bull;</span>
-            <span>1 Stop</span>
+            <span>{stop}</span>
           </div>
         </div>
       </div>
-      <Badge>33h 20h</Badge>
+      <Badge>{duration}</Badge>
     </Card.Header>
   );
 }
+
+type Props = {
+  from: string;
+  to: string;
+  type: string;
+  date: string;
+  stop: string;
+  duration: string;
+};

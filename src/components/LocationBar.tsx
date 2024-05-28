@@ -1,13 +1,13 @@
-import { ReactNode } from 'react';
 import classNames from '@/services/class-names';
 import { ReactComponent as Location } from '@/icons/location.svg';
 import { ReactComponent as LocationBlue } from '@/icons/location-blue.svg';
 
-export function Bar({
-  leftContent,
-  rightContent,
+export function LocationBar({
+  title,
+  airport,
+  terminal,
   iconActive = false,
-  contentBg = 'gray',
+  isLayover = false,
 }: Props) {
   return (
     <div className="flex items-center gap-[0.75rem]">
@@ -15,22 +15,26 @@ export function Bar({
       <div
         className={classNames(
           {
-            'bg-primary-200': contentBg === 'gray',
-            'bg-secondary-300': contentBg === 'blue',
+            'bg-primary-300': isLayover,
+            'bg-secondary-300': !isLayover,
           },
           'w-full rounded-md flex items-center justify-between gap-[1rem] text-[0.813rem] py-[0.75rem] px-[1rem]'
         )}
       >
-        <p className="text-black font-[475]">{leftContent}</p>
-        <div className="text-secondary-400">{rightContent}</div>
+        <p className="text-black font-[475]">{title}</p>
+        <p className="text-secondary-400">
+          {terminal && <span className="font-[475]">{terminal}:&nbsp;</span>}
+          {airport}
+        </p>
       </div>
     </div>
   );
 }
 
 type Props = {
-  leftContent: string;
+  title: string;
+  airport: string;
+  terminal?: string;
   iconActive?: boolean;
-  rightContent: ReactNode;
-  contentBg?: 'gray' | 'blue';
+  isLayover?: boolean;
 };
